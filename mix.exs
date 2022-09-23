@@ -30,7 +30,8 @@ defmodule ElixirCoverallsTest.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:excoveralls, "~> 0.14", only: @test_envs}
+      {:excoveralls,
+       path: "/Users/sam.hutchings/Development/samhutchings/excoveralls", only: @test_envs}
     ]
   end
 
@@ -42,7 +43,7 @@ defmodule ElixirCoverallsTest.MixProject do
 
   defp unit_test_coverage(args) do
     args = if IO.ANSI.enabled?(), do: ["--color" | args], else: ["--no-color" | args]
-    mix_command = ["coveralls.post", "--no-start"] ++ args
+    mix_command = ["coveralls.json", "--no-start"] ++ args
 
     Mix.shell().info("==> Running `mix #{Enum.join(mix_command, " ")}` with `MIX_ENV=unit_test`")
 
