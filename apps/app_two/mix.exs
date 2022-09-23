@@ -38,7 +38,8 @@ defmodule AppTwo.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:excoveralls, "~> 0.14", only: @test_envs}
+      {:excoveralls,
+       path: "/Users/sam.hutchings/Development/samhutchings/excoveralls", only: @test_envs}
     ]
   end
 
